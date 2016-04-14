@@ -1,0 +1,323 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+
+#include "game.h"
+#include "Player.h"
+
+//void playerDeath(struct Player* player);
+//void startGame();
+
+void saveGame(struct Player* player)
+{
+    FILE* fp = 0;
+    char* buffer = 0;
+
+    struct Mob* mob = player->mob;
+    struct MobRace* race = player->mob->mobRace;
+    struct StuffItem* head = player->mob->equipment->head;
+    struct StuffItem* chest = player->mob->equipment->chest;
+    struct StuffItem* leggings = player->mob->equipment->leggings;
+    struct StuffItem* boots = player->mob->equipment->boots;
+    struct StuffItem* left = player->mob->equipment->leftHand;
+    struct StuffItem* right = player->mob->equipment->rightHand;
+
+    fp = fopen("./gamesave.txt", "w");
+    fclose(fp);
+
+    // start printing player
+    buffer = malloc(80);
+    memset(buffer, 0, 80);
+
+    snprintf( buffer, 80, "%d|%d|%d|\n", player->id, player->lives, player->gold);
+    fp = fopen("./gamesave.txt", "a");
+    fputs(buffer, fp);
+    free(buffer);
+    fclose(fp);
+    // end printinf player
+
+    // start printing mob
+    buffer = malloc(80);
+    memset(buffer, 0, 80);
+    snprintf( buffer, 80, "%d|%s|%d|%d|%d|%d|%d|\n", mob->id, mob->name, mob->hp, mob->attack,
+             mob->relativeDefense, mob->absoluteDefense, mob->dodge);
+    fp = fopen("./gamesave.txt", "a");
+    fputs(buffer, fp);
+    free(buffer);
+    fclose(fp);
+    // end printing mob
+
+
+    buffer = malloc(80);
+    memset(buffer, 0, 80);
+    snprintf( buffer, 80, "%d|%s|%d|%d|%d|%d|\n", race->hp, race->name, race->attack, race->relativeDefense,
+             race->absoluteDefense, race->dodge);
+    fp = fopen("./gamesave.txt", "a");
+    fputs(buffer, fp);
+    free(buffer);
+    fclose(fp);
+
+
+    buffer = malloc(80);
+    memset(buffer, 0, 80);
+    snprintf( buffer, 80, "%s|%d|%d|%d|%d|%d|%d|\n", head->name, head->goldValue, head->typeId, head->attack, head->relativeDefense,
+             head->absoluteDefense);
+    fp = fopen("./gamesave.txt", "a");
+    fputs(buffer, fp);
+    free(buffer);
+    fclose(fp);
+
+    buffer = malloc(80);
+    memset(buffer, 0, 80);
+    snprintf( buffer, 80, "%s|%d|%d|%d|%d|%d|%d|\n", chest->name, chest->goldValue, chest->typeId, chest->attack, chest->relativeDefense,
+             chest->absoluteDefense);
+    fp = fopen("./gamesave.txt", "a");
+    fputs(buffer, fp);
+    free(buffer);
+    fclose(fp);
+
+    buffer = malloc(80);
+    memset(buffer, 0, 80);
+    snprintf( buffer, 80, "%s|%d|%d|%d|%d|%d|%d|\n", leggings->name, leggings->goldValue, leggings->typeId, leggings->attack, leggings->relativeDefense,
+             leggings->absoluteDefense);
+    fp = fopen("./gamesave.txt", "a");
+    fputs(buffer, fp);
+    free(buffer);
+    fclose(fp);
+
+    buffer = malloc(80);
+    memset(buffer, 0, 80);
+    snprintf( buffer, 80, "%s|%d|%d|%d|%d|%d|%d|\n", boots->name, boots->goldValue, boots->typeId, boots->attack, boots->relativeDefense,
+             boots->absoluteDefense);
+    fp = fopen("./gamesave.txt", "a");
+    fputs(buffer, fp);
+    free(buffer);
+    fclose(fp);
+
+    buffer = malloc(80);
+    memset(buffer, 0, 80);
+    snprintf( buffer, 80, "%s|%d|%d|%d|%d|%d|%d|\n", left->name, left->goldValue, left->typeId, left->attack, left->relativeDefense,
+             left->absoluteDefense);
+    fp = fopen("./gamesave.txt", "a");
+    fputs(buffer, fp);
+    free(buffer);
+    fclose(fp);
+
+    buffer = malloc(80);
+    memset(buffer, 0, 80);
+    snprintf( buffer, 80, "%s|%d|%d|%d|%d|%d|%d|\n", right->name, right->goldValue, right->typeId, right->attack, right->relativeDefense,
+             right->absoluteDefense);
+    fp = fopen("./gamesave.txt", "a");
+    fputs(buffer, fp);
+    free(buffer);
+    fclose(fp);
+}
+
+struct Player* loadGame(){
+    FILE* fp = 0;
+    char* buffer = 0;
+    char tokens[] = "|\n";
+    struct Player* player = malloc(sizeof(struct Player));
+    struct Mob* mob = malloc(sizeof(struct Mob));
+    struct MobRace* race = malloc(sizeof(struct MobRace));
+    struct StuffItem* head = malloc(sizeof(struct StuffItem));
+    struct StuffItem* chest = malloc(sizeof(struct StuffItem));
+    struct StuffItem* leggings = malloc(sizeof(struct StuffItem));
+    struct StuffItem* boots = malloc(sizeof(struct StuffItem));
+    struct StuffItem* left = malloc(sizeof(struct StuffItem));
+    struct StuffItem* right = malloc(sizeof(struct StuffItem));
+    struct Equipment* equipment = malloc(sizeof(struct Equipment));
+
+    /* allocate */
+    buffer = malloc (80);
+    memset(buffer, 0, 80);
+
+    /* open the file in read mode */
+    fp = fopen("./gamesave.txt", "r");
+
+    /* the line is in 'buffer', now parse it into the 'data' variable using strtok() */
+
+    if (fgets(buffer, 80, fp)) {
+        char* temp = malloc(sizeof(char)*20);
+        player->id = atoi(strtok(buffer, tokens));
+        player->lives = atoi(strtok(NULL, tokens));
+        player->gold = atoi(strtok(NULL, tokens));
+
+        //buffer = malloc (80);
+        //memset(buffer, 0, 80);
+    }
+
+    if (fgets(buffer, 80, fp)) {
+        char* temp2 = malloc(sizeof(char)*20);
+        mob->id = atoi(strtok(buffer, tokens));
+        strcpy(temp2, strtok(NULL, tokens));
+        mob->name = temp2;
+        mob->hp = atoi(strtok(NULL, tokens));
+        mob->attack = atoi(strtok(NULL, tokens));
+        mob->relativeDefense = atoi(strtok(NULL, tokens));
+        mob->absoluteDefense = atoi(strtok(NULL, tokens));
+        mob->dodge = atoi(strtok(NULL, tokens));
+
+        //buffer = malloc (80);
+        //memset(buffer, 0, 80);
+    }
+
+    if (fgets(buffer, 80, fp)) {
+        char* temp = malloc(sizeof(char)*20);
+        strcpy(temp, strtok(buffer, tokens));
+        item->name = temp;
+        item->goldValue = atoi(strtok(NULL, tokens));
+        item->typeId = atoi(strtok(NULL, tokens));
+        item->relativeDefense = atoi(strtok(NULL, tokens));
+        item->absoluteDefense = atoi(strtok(NULL, tokens));
+        equipment->head = item;
+    }
+
+
+    if (fgets(buffer, 80, fp)) {
+        char* temp = malloc(sizeof(char)*20);
+        strcpy(temp, strtok(buffer, tokens));
+        item->name = temp;
+        item->goldValue = atoi(strtok(NULL, tokens));
+        item->typeId = atoi(strtok(NULL, tokens));
+        item->relativeDefense = atoi(strtok(NULL, tokens));
+        item->absoluteDefense = atoi(strtok(NULL, tokens));
+        equipment->chest = item;
+    }
+
+    printf("lala");
+
+    if (fgets(buffer, 80, fp)) {
+        char* temp = malloc(sizeof(char)*20);
+        strcpy(temp, strtok(buffer, tokens));
+        item->name = temp;
+        item->goldValue = atoi(strtok(NULL, tokens));
+        item->typeId = atoi(strtok(NULL, tokens));
+        item->relativeDefense = atoi(strtok(NULL, tokens));
+        item->absoluteDefense = atoi(strtok(NULL, tokens));
+        player->mob->equipment->leggings = item;
+    }
+
+    if (fgets(buffer, 80, fp)) {
+        char* temp = malloc(sizeof(char)*20);
+        strcpy(temp, strtok(buffer, tokens));
+        item->name = temp;
+        item->goldValue = atoi(strtok(NULL, tokens));
+        item->typeId = atoi(strtok(NULL, tokens));
+        item->relativeDefense = atoi(strtok(NULL, tokens));
+        item->absoluteDefense = atoi(strtok(NULL, tokens));
+        player->mob->equipment->boots = item;
+    }
+
+    if (fgets(buffer, 80, fp)) {
+        char* temp = malloc(sizeof(char)*20);
+        strcpy(temp, strtok(buffer, tokens));
+        item->name = temp;
+        item->goldValue = atoi(strtok(NULL, tokens));
+        item->typeId = atoi(strtok(NULL, tokens));
+        item->relativeDefense = atoi(strtok(NULL, tokens));
+        item->absoluteDefense = atoi(strtok(NULL, tokens));
+        player->mob->equipment->leftHand = item;
+    }
+
+    if (fgets(buffer, 80, fp)) {
+        char* temp = malloc(sizeof(char)*20);
+        strcpy(temp, strtok(buffer, tokens));
+        item->name = temp;
+        item->goldValue = atoi(strtok(NULL, tokens));
+        item->typeId = atoi(strtok(NULL, tokens));
+        item->relativeDefense = atoi(strtok(NULL, tokens));
+        item->absoluteDefense = atoi(strtok(NULL, tokens));
+        player->mob->equipment->rightHand = item;
+    }
+
+    fclose(fp);
+    free(buffer);
+    mob->mobRace = race;
+    player->mob = mob;
+    return player;
+}
+
+void printGameWelcomeMenu()
+{
+    printf(" =================================  \n");
+    printf("||                               || \n");
+    printf("||                               || \n");
+    printf("||           Welcome to          || \n");
+    printf("||                               || \n");
+    printf("||       THE CHRONICLES OF       || \n");
+    printf("||                               || \n");
+    printf("||            VALHORA            || \n");
+    printf("||                               || \n");
+    printf("||                               || \n");
+    printf(" =================================  \n");
+}
+
+
+// manages the main parts of the game
+int startGame()
+{
+    //printGameWelcomeMenu();
+    //int flagAlive = 1;
+    /*char name[20];
+
+    printf("Hello young aventurer, and welcome to the blabla.\nWhat is your name ? ");
+    scanf("%s", name);*/
+
+    //struct Player* playerCharacter = createPlayer("Bobby", 10);
+    //saveGame(playerCharacter);
+
+    //struct Player* player = malloc(sizeof(struct Player));
+    /*struct Player* player = loadGame();
+    printf("lala\n");
+    printf("le nom est %d\n", player->lives);
+    printf("le nom est %s", player->mob->name);*/
+
+    //while(flagAlive)
+
+
+/*
+
+    struct Equipment* playerEquipment = Equipment_ctor(returnListElementItem(getItems(),7), returnListElementItem(getItems(),1),
+                                                       returnListElementItem(getItems(),2), returnListElementItem(getItems(),3),
+                                                       returnListElementItem(getItems(),4), returnListElementItem(getItems(),5));
+
+    struct Mob* playerMob = Mob_ctor(0, "Bobby", returnListElementRace(getRaces(), 1), 100, 10, 50, 10, 10, playerEquipment);
+
+    struct Player* player = Player_ctor(0, playerMob, 3, 500, createFirstInventory(), selectFirstPotions(), createMob(playerMob));
+
+
+    saveGame(player);
+
+
+
+
+*/
+
+    struct Player* playerN = loadGame();
+    printf("id =  %d\n", playerN->id);
+    printf("lives = %d\n", playerN->lives);
+    printf("gold = %d\n", playerN->gold);
+    printf("nomp = %s", playerN->mob->name);
+    printf("race = %s", playerN->mob->mobRace->name);
+
+    return 0;
+
+
+
+
+    //printf("j'ai %d attack\n", playerN->mob->attack);
+
+
+
+
+
+    /*    startDungeon(playerCharacter);
+        enterTavern(playerCharacter);
+    }*/
+
+    //doUsableItemEffect(returnListElementUsable(playerCharacter->playerPotions, 2), playerCharacter->mob);
+    //removeUsableItemEffect(returnListElementUsable(playerCharacter->playerPotions, 2), playerCharacter->mob);
+
+}

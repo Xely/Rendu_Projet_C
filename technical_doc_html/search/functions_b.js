@@ -1,0 +1,14 @@
+var searchData=
+[
+  ['readfromfileitems',['readFromFileItems',['../_stuff_item_8c.html#a2e17720d1f7cf601131603e0d748d1de',1,'readFromFileItems():&#160;StuffItem.c'],['../_stuff_item_8h.html#a2e17720d1f7cf601131603e0d748d1de',1,'readFromFileItems():&#160;StuffItem.c']]],
+  ['readfromfilemob',['readFromFileMob',['../_mob_8c.html#af083ed50d34ddfd28228fd8b0087ccd2',1,'readFromFileMob():&#160;Mob.c'],['../_mob_8h.html#af083ed50d34ddfd28228fd8b0087ccd2',1,'readFromFileMob():&#160;Mob.c']]],
+  ['readfromfilerace',['readFromFileRace',['../_mob_race_8c.html#a3ab6aba707759479233736115bbfd2ac',1,'readFromFileRace():&#160;MobRace.c'],['../_mob_race_8h.html#a3ab6aba707759479233736115bbfd2ac',1,'readFromFileRace():&#160;MobRace.c']]],
+  ['readfromfileusable',['readFromFileUsable',['../_usable_item_8c.html#a3068a8f6518e3362a9dc5e2577969901',1,'readFromFileUsable():&#160;UsableItem.c'],['../_usableitem_8h.html#a3068a8f6518e3362a9dc5e2577969901',1,'readFromFileUsable():&#160;UsableItem.c']]],
+  ['removeusableitemeffect',['removeUsableItemEffect',['../_usable_item_8c.html#a0a31839edf453b9afcbe16eeec9293d0',1,'UsableItem.c']]],
+  ['replaceitemequip',['replaceItemEquip',['../_stuff_item_8c.html#ac4ec911791ef2cc88ae9428199e955cf',1,'StuffItem.c']]],
+  ['resetpotions',['resetPotions',['../dungeon_8c.html#a38382bae1963998d4f7ac39250f4b7b9',1,'resetPotions(struct Player *player):&#160;dungeon.c'],['../dungeon_8h.html#a38382bae1963998d4f7ac39250f4b7b9',1,'resetPotions(struct Player *player):&#160;dungeon.c']]],
+  ['returnlistelementitem',['returnListElementItem',['../_stuff_item_8c.html#a1c64b41f249573a641c5d4e2ea8fd7e8',1,'returnListElementItem(struct DlistItems *p_list, int position):&#160;StuffItem.c'],['../_stuff_item_8h.html#a1c64b41f249573a641c5d4e2ea8fd7e8',1,'returnListElementItem(struct DlistItems *p_list, int position):&#160;StuffItem.c']]],
+  ['returnlistelementmob',['returnListElementMob',['../_mob_8c.html#a616db8cc01911f4d8a5e27f0fcb48b39',1,'returnListElementMob(struct DlistMob *p_list, int position):&#160;Mob.c'],['../_mob_8h.html#a616db8cc01911f4d8a5e27f0fcb48b39',1,'returnListElementMob(struct DlistMob *p_list, int position):&#160;Mob.c']]],
+  ['returnlistelementrace',['returnListElementRace',['../_mob_race_8c.html#a6421cf806ae05f2195885c312d3db9ed',1,'returnListElementRace(struct DlistRace *p_list, int position):&#160;MobRace.c'],['../_mob_race_8h.html#a6421cf806ae05f2195885c312d3db9ed',1,'returnListElementRace(struct DlistRace *p_list, int position):&#160;MobRace.c']]],
+  ['returnlistelementusable',['returnListElementUsable',['../_usable_item_8c.html#a06c08df87e980ee57cf74455575424e2',1,'returnListElementUsable(struct DlistUsable *p_list, int position):&#160;UsableItem.c'],['../_usableitem_8h.html#a06c08df87e980ee57cf74455575424e2',1,'returnListElementUsable(struct DlistUsable *p_list, int position):&#160;UsableItem.c']]]
+];

@@ -1,0 +1,14 @@
+0|3|500|
+0|Bobby|100|10|50|10|10|
+100|Human|10|50|10|10|
+Super casque|150|0|0|7|2|
+Empty|0|0|0|0|0|
+Empty|0|1|0|0|0|
+Empty|0|2|0|0|0|
+Empty|0|3|0|0|0|
+Empty|0|4|0|0|0|
+0|
+3|
+Instant health potion|30|5|5|25|0|0|0|0|0|
+Moderate attack potion|20|3|3|0|8|0|0|0|0|
+Greater armor potion|50|3|3|0|0|25|0|0|0|

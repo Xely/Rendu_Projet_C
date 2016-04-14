@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="projet_RPG" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/projet_RPG" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/projet_RPG" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="Equipement.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Equipement.h" />
+		<Unit filename="GameUtil.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Mob.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Mob.h" />
+		<Unit filename="MobRace.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="MobRace.h" />
+		<Unit filename="Player.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Player.h" />
+		<Unit filename="StuffItem.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="StuffItem.h" />
+		<Unit filename="UsableItem.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Usableitem.h" />
+		<Unit filename="dungeon.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="dungeon.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="game.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game.h" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tavern.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tavern.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="testlist.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
